@@ -1,0 +1,216 @@
+
+.center {
+  background-image: url('src/assets/fundo-4.png'); /* ou outro caminho */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 15px;
+}
+
+h1{
+    font-family: 'Oswald', sans-serif;
+}
+
+h1 strong{
+    color: rgb(3, 133, 133);
+}
+
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.card-center{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card-end {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  padding: 30px;
+  border-radius: 30px; /* arredondamento menor */
+  background-color: white; /* fundo branco principal */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+              0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+
+.card-end::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px; /* altura da faixa azul */
+  background-color: rgb(0, 102, 255);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  z-index: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: auto;
+  padding: 30px;
+  border-radius: 30px; /* arredondamento menor */
+  background-color: white; /* fundo branco principal */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+              0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* altura da faixa azul */
+  background-color: rgb(0, 102, 255);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pergunta {
+  height: 100%;  /* Usa toda a altura disponível da faixa azul */
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* Centraliza o conteúdo */
+  color: white;
+  font-size: 1.5rem;    /* Tamanho da fonte da pergunta */
+}
+
+.respostas{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  height: 65%;
+  margin: 25px 0 20px 0;
+}
+
+.respostas label{
+  font-size: 20px;
+}
+
+.botao-personalizado h2{
+    margin: 0;
+}
+
+.botao-personalizado {
+  background-color: rgb(0, 123, 255);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+  
+.botao-personalizado:hover {
+  background-color: rgb(0, 102, 255);
+  box-shadow: 0 6px 14px rgba(0, 102, 255, 0.5);
+  transform: translateY(-2px);
+}
+  
+  
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.form-check{
+  display: flex;
+  flex-direction: row;
+}
+
+.form-check-input {
+  transform: scale(1.2); /* aumenta 1.5x */
+  margin-right: 10px;    /* espaço entre o botão e o texto */
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+.imagem-container{
+    margin: 0;
+
+}
+
+.imagem-container img {
+    width: 250px;
+}
+
+@media (max-width: 768px) {
+    .card {
+      width: 95%;          /* ocupa a maior parte da tela */
+      height: auto;
+      padding: 20px;
+      border-radius: 30px; /* arredondamento menor */
+    }
+  
+    .pergunta h2 {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  
+    .respostas {
+      gap: 15px;
+      margin: 25px 0 15px 0;
+    }
+  
+    .respostas label {
+      font-size: 20px; /* texto menor */
+    }
+  
+    .form-check {
+      align-items: center;
+    }
+  
+    .form-check-input {
+      transform: scale(1); /* tamanho mais normal para mobile */
+    }
+  
+    .botao-personalizado {
+      width: 100%; /* botão ocupa toda a largura */
+      font-size: 16px;
+      padding: 10px;
+    }
+  
+    .botoes {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 10px;
+    }
+  }
+  

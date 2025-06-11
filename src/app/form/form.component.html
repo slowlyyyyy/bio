@@ -1,0 +1,1142 @@
+<div class="center">
+
+  <div class="header">
+
+    <div class="imagem-container">
+      <img src="assets/cerebro.png" alt="cerebro" />
+    </div>
+
+  </div>
+
+
+  <div class="card-center">
+
+    <div class="card" *ngIf="pergunta === 1">
+        <div class="pergunta">
+          <h2>01 - Eu sou... </h2>
+        </div>
+      
+        <div class="respostas">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="resposta"
+                   [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Idealista'}" id="radioDefault1">
+            <label class="form-check-label" for="radioDefault1">
+              I - Idealista
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="resposta"
+                   [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Divertido, espiritual e benéfico'}" id="radioDefault2">
+            <label class="form-check-label" for="radioDefault2">
+              C - Divertido, espiritual e benéfico
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="resposta"
+                   [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Confiável, meticuloso e previsível'}" id="radioDefault3">
+            <label class="form-check-label" for="radioDefault3">
+              O - Confiável, meticuloso e previsível
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="resposta"
+                   [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Focado, determinado e persistente'}" id="radioDefault4">
+            <label class="form-check-label" for="radioDefault4">
+              A - Focado, determinado e persistente
+            </label>
+          </div>
+        </div>
+      
+        <div class="botoes">
+          <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+      
+    <div class="card" *ngIf="pergunta === 2">
+
+        <div class="pergunta">
+            <h2>02 - Eu gosto de...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Ser piloto'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Ser piloto
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Conversar com os passageiros'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Conversar com os passageiros
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Planejar a viagem'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Planejar a viagem
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Explorar novas rotas'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Explorar novas rotas
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 3">
+
+        <div class="pergunta">
+            <h2>03 - Se você quiser se dar bem comigo...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Me dê liberdade'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        I - Me dê liberdade
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Me deixe saber sua expectativa'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Me deixe saber sua expectativa
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Lidere, siga ou saia do caminho'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - Lidere, siga ou saia do caminho
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Seja amigável, carinhoso e compreensivo'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Seja amigável, carinhoso e compreensivo
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 4">
+
+        <div class="pergunta">
+            <h2>04 - Eu prefiro... </h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Perguntas a respostas'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        I - Perguntas a respostas
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Ter todos os detalhes'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Ter todos os detalhes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Vantagens a meu favor'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - Vantagens a meu favor
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Que todos tenham a chance de serem Ouvidos'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Que todos tenham a chance de serem Ouvidos
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 5">
+
+        <div class="pergunta">
+            <h2>05 - Eu gosto de...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Fazer progresso'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Fazer progresso
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Construir memórias'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Construir memórias
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Fazer sentido'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Fazer sentido
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Tornar as pessoas confortáveis'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Tornar as pessoas confortáveis
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 6">
+
+        <div class="pergunta">
+            <h2>06 - Eu gosto de chegar...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Na frente'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Na frente
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Junto'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Junto
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Na hora'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Na hora
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Em outro lugar'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Em outro lugar
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 7">
+
+        <div class="pergunta">
+            <h2>07 - Um ótimo dia para mim é quando...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Consigo fazer muitas coisas'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Consigo fazer muitas coisas
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Me divirto com meus amigos'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Me divirto com meus amigos
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Tudo segue conforme planejado'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Tudo segue conforme planejado
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Desfruto de coisas novas e estimulantes'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Desfruto de coisas novas e estimulantes
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 8">
+
+        <div class="pergunta">
+            <h2>08 - Eu vejo a morte como...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Uma grande aventura misteriosa'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        I - Uma grande aventura misteriosa
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Oportunidade para rever os falecidos'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Oportunidade para rever os falecidos
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Um modo de receber recompensas'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Um modo de receber recompensas  
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Algo que sempre chega muito cedo'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - Algo que sempre chega muito cedo
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 9">
+
+        <div class="pergunta">
+            <h2>09 - Minha filosofia de vida é...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Há ganhadores e perdedores, e eu acredito ser um ganhador'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Há ganhadores e perdedores, e eu acredito ser um ganhador
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Para eu ganhar, ninguém precisa perder'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Para eu ganhar, ninguém precisa perder
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Para ganhar é preciso seguir as regras'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Para ganhar é preciso seguir as regras
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Para ganhar, é necessário inventar novas regras'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Para ganhar, é necessário inventar novas regras
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 10">
+
+        <div class="pergunta">
+            <h2>10 - Eu sempre gostei de...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Explorar'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        I - Explorar
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Evitar surpresas'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Evitar surpresas
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Focalizar a meta'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - Focalizar a meta
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Realizar uma abordagem natural'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Realizar uma abordagem natural
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 11">
+
+        <div class="pergunta">
+            <h2>11 - Para conseguir obter bons resultados é preciso...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Ter incertezas'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        I - Ter incertezas
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Controlar o essencial'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Controlar o essencial
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Diversão e celebração'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Diversão e celebração
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Planejar e obter recursos'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - Planejar e obter recursos
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 12">
+
+        <div class="pergunta">
+            <h2>12 - Eu me divirto quando...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Estou me exercitando'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Estou me exercitando
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Tenho novidades'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Tenho novidades
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Estou com os outros'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Estou com os outros
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" 
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Determino as regras'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Determino as regras
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 13">
+
+        <div class="pergunta">
+            <h2>13 - Eu penso que... </h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Unidos venceremos, divididos perderemos'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        C - Unidos venceremos, divididos perderemos
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'O ataque é melhor que a defesa'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - O ataque é melhor que a defesa
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'É bom ser manso, mas andar com um porrete'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - É bom ser manso, mas andar com um porrete
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Um homem prevenido vale por dois'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Um homem prevenido vale por dois
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 14">
+
+        <div class="pergunta">
+            <h2>14 - Minha preocupação é...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Gerar a ideia global'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        I - Gerar a ideia global
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Fazer com que as pessoas gostem'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Fazer com que as pessoas gostem
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Fazer com que funcione'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Fazer com que funcione
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Fazer com que aconteça'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - Fazer com que aconteça
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 15">
+
+        <div class="pergunta">
+            <h2>15 - Eu gosto de mudanças se...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Me der uma vantagem competitiva'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Me der uma vantagem competitiva
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'For divertido e puder ser compartilhado'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - For divertido e puder ser compartilhado
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Me der mais liberdade e variedade'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Me der mais liberdade e variedade
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Melhorar ou me der mais controle'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Melhorar ou me der mais controle
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 16">
+
+        <div class="pergunta">
+            <h2>16 - Não existe nada de errado em...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Se colocar na frente'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Se colocar na frente
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Colocar os outros na frente'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Colocar os outros na frente
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Mudar de ideia'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Mudar de ideia
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Ser consistente'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Ser consistente
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 17">
+
+        <div class="pergunta">
+            <h2>17 - Eu gosto de buscar conselhos de...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Pessoas bem-sucedidas'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Pessoas bem-sucedidas
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Anciões e conselheiros'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Anciões e conselheiros
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Autoridades no assunto'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Autoridades no assunto
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Lugares, os mais estranhos'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Lugares, os mais estranhos
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 18">
+
+        <div class="pergunta">
+            <h2>18 - Meu lema é...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Fazer o que precisa ser feito'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        I - Fazer o que precisa ser feito
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Fazer bem feito'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Fazer bem feito
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Fazer junto com o grupo'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Fazer junto com o grupo
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Simplesmente fazer'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - Simplesmente fazer
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 19">
+
+        <div class="pergunta">
+            <h2>19 - Eu gosto de...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Complexidade, mesmo se confuso'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        I - Complexidade, mesmo se confuso
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Ordem e sistematização'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Ordem e sistematização
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Calor humano e animação'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Calor humano e animação
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Coisas claras e simples'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - Coisas claras e simples
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 20">
+
+        <div class="pergunta">
+            <h2>20 - Tempo para mim é...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Algo que detesto desperdiçar'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Algo que detesto desperdiçar
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Um grande ciclo'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - Um grande ciclo
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Uma flecha que leva ao inevitável'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Uma flecha que leva ao inevitável
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Irrelevante'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Irrelevante
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 21">
+
+        <div class="pergunta">
+            <h2>21 - Se eu fosse bilionário...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Faria doações para muitas entidades'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        C - Faria doações para muitas entidades
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Criaria uma poupança avantajada'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Criaria uma poupança avantajada
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Faria o que desse na cabeça'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Faria o que desse na cabeça
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Me exibiria bastante para algumas pessoas'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - Me exibiria bastante para algumas pessoas
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 22">
+
+        <div class="pergunta">
+            <h2>22 - Eu acredito que...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'O destino é mais importante que a jornada'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - O destino é mais importante que a jornada
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'A jornada é mais importante que o destino'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - A jornada é mais importante que o destino
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'Um centavo economizado é um centavo ganho'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - Um centavo economizado é um centavo ganho
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Bastam um navio e uma estrela para navegar'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Bastam um navio e uma estrela para navegar
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 23">
+
+        <div class="pergunta">
+            <h2>23 - Eu acredito também que...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Aquele que hesita está perdido'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        A - Aquele que hesita está perdido
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'De grão em grão a galinha enche o papo'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        O - De grão em grão a galinha enche o papo
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'O que vai, volta'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - O que vai, volta
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Um sorriso ou uma careta é o mesmo para quem é cego'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - Um sorriso ou uma careta é o mesmo para quem é cego
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 24">
+
+        <div class="pergunta">
+            <h2>24 - Eu acredito ainda que...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                    [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'É melhor prudência do que arrependimento'}" >
+                    <label class="form-check-label" for="radioDefault1">
+                        O - É melhor prudência do que arrependimento
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'A autoridade deve ser desafiada'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        I - A autoridade deve ser desafiada
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Ganhar é fundamental'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        A - Ganhar é fundamental
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                    [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'O coletivo é mais importante do que o individual'}" >
+                    <label class="form-check-label" for="radioDefault2">
+                        C - O coletivo é mais importante do que o individual
+                    </label>
+                </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="proxima()"><h2>Próxima</h2></button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="pergunta === 25">
+
+        <div class="pergunta">
+            <h2>25 - Eu penso que...</h2>
+        </div>
+
+        <div class="respostas">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                [(ngModel)]="resposta" [value]="{letra: 'I', descricao: 'Não é fácil ficar encurralado'}" >
+                <label class="form-check-label" for="radioDefault1">
+                    I - Não é fácil ficar encurralado
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                [(ngModel)]="resposta" [value]="{letra: 'O', descricao: 'É preferível olhar, antes de pular'}" >
+                <label class="form-check-label" for="radioDefault2">
+                    O - É preferível olhar, antes de pular
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                [(ngModel)]="resposta" [value]="{letra: 'C', descricao: 'Duas cabeças pensam melhor do que uma'}" >
+                <label class="form-check-label" for="radioDefault2">
+                    C - Duas cabeças pensam melhor do que uma
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                [(ngModel)]="resposta" [value]="{letra: 'A', descricao: 'Se você não tem condições de competir, não compita'}" >
+                <label class="form-check-label" for="radioDefault2">
+                    A - Se você não tem condições de competir, não compita
+                </label>
+            </div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao-personalizado" (click)="anterior()"><h2>Anterior</h2></button>
+            <button class="botao-personalizado" (click)="concluir()"><h2>Concluir</h2></button>
+        </div>
+    </div>
+
+    <div class="card-end" *ngIf="pergunta > 25">
+
+        <div class="respostas">
+            <h1>Obrigado por participar do nosso questionário! <strong>Biocoaching</strong></h1>
+        </div>
+
+    </div>
+    
+  </div>
+
+  <div class="footer">
+
+    <div class="imagem-container">
+      <img src="assets/musculo.png" alt="cerebro" />
+    </div>
+
+  </div>
+
+</div>
+ 
+<div id="pdf-content" style="padding: 20px; width: 800px; background-color: rgb(54, 202, 35);">
+  <h2 style="text-align: center;">ANÁLISE DE PERFIL COMPORTAMENTAL - NED HERRMANN</h2>
+  <p><strong>Data:</strong> {{ dataHoje() }}</p>
+  <p><strong>Nome:</strong> {{ nome }}</p>
+  <p><strong>Email:</strong> {{ email }}</p>
+
+  <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <tr>
+      <th style="border: 1px solid black; padding: 5px;">Arquétipo</th>
+      <th style="border: 1px solid black; padding: 5px;">Pts</th>
+      <th style="border: 1px solid black; padding: 5px;">%</th>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 5px;">I - Visão</td>
+      <td style="border: 1px solid black; padding: 5px;">{{ I }}</td>
+      <td style="border: 1px solid black; padding: 5px;">{{ calcularPercentual(I) }}%</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 5px;">C - Coração</td>
+      <td style="border: 1px solid black; padding: 5px;">{{ C }}</td>
+      <td style="border: 1px solid black; padding: 5px;">{{ calcularPercentual(C) }}%</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 5px;">O - Cérebro</td>
+      <td style="border: 1px solid black; padding: 5px;">{{ O }}</td>
+      <td style="border: 1px solid black; padding: 5px;">{{ calcularPercentual(O) }}%</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 5px;">A - Músculo</td>
+      <td style="border: 1px solid black; padding: 5px;">{{ A }}</td>
+      <td style="border: 1px solid black; padding: 5px;">{{ calcularPercentual(A) }}%</td>
+    </tr>
+  </table>
+
+  <p style="margin-top: 30px;">Os demais conteúdos e interpretações seguem o modelo padrão do Ned Herrmann conforme avaliado.</p>
+</div>
