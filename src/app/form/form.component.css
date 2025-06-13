@@ -171,6 +171,32 @@ h1 strong{
     width: 250px;
 }
 
+.imagem-table img{
+    width: 100px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.visao {
+  background-color: rgb(70, 192, 57); /* verde clarinho */
+}
+
+.coracao {
+  background-color: rgb(168, 28, 28); /* vermelho clarinho */
+}
+
+.cerebro {
+  background-color: rgb(31, 86, 168); /* azul clarinho */
+}
+
+.musculo {
+  background-color: rgb(226, 201, 36); /* amarelo clarinho */
+}
+
+
 @media (max-width: 768px) {
     .card {
       width: 95%;          /* ocupa a maior parte da tela */

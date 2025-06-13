@@ -1093,6 +1093,92 @@
     </div>
     
   </div>
+ 
+    <!-- <div id="pdf-content" style="padding: 20px; width: 100%; background-color: rgb(255, 255, 255);" *ngIf="pergunta > 25">
+    <h1 style="text-align: center;">ANÁLISE DE PERFIL COMPORTAMENTAL - NED HERRMANN</h1>
+    <p><strong>Data:</strong> {{ dataHoje() }}</p>
+    <p><strong>Nome:</strong> {{ nome }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col"><h2>Arquetipo</h2></th>
+            <th scope="col"><h2>Pts</h2></th>
+            <th scope="col"><h2>%</h2></th>
+            <th scope="col"></th>
+            <th scope="col"><h2>Comportamento</h2></th>
+            <th scope="col"><h2>P. Fortes</h2></th>
+            <th scope="col"><h2>P. de Melhoria</h2></th>
+            <th scope="col" style="width: 300px;" ><h2>Motivações</h2></th>
+            <th scope="col"><h2>Valores</h2></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th class="visao">I - Visão</th>
+            <td>{{ I * 4}}%</td>
+            <td>{{ I }}</td>
+            <td>
+                <div class="imagem-table">
+                    <img src="assets/olho.png" alt="cerebro" />
+                </div>
+            </td>
+            <td class="visao"> <strong>Fazer Diferente</strong> Criativo, intuitivo, foco no futuro, distraido, Curioso/Informal/Flexivel</td>
+            <td class="visao"> <strong>Idealização</strong> Provoca mudanças, antecipar o futuro, criatividade</td>
+            <td class="visao"> Impaciencia e rebeldia. Defender o novo pelo novo.</td>
+            <td class="visao"> Liberdade de expressão, ausência de controles rígidos. Oportunidade para delegar. Liberdade para fazer exceções tarefas e detalhes.</td>
+            <td class="visao"> Criatividade e liberdade, inspira ideias.</td>
+            </tr>
+            <tr>
+            <th class="coracao">C - Coração</th>
+            <td>{{ C * 4}}%</td>
+            <td>{{ C }}</td>
+            <td>
+                <div class="imagem-table">
+                    <img src="assets/coracao.png" alt="cerebro" />
+                </div>
+            </td>
+            <td class="coracao"><strong>Fazer Junto</strong> Sensivel, relacionamento, time, tradicionalista, contribuição, busca harmonia.</td>
+            <td class="coracao"><strong>Comunicação</strong> Comunicação harmonica. Desenvolver e manter a cultura empresarial. Comunicação aberta.</td>
+            <td class="coracao"> Esconder conflitos. Felicidade em primeiro lugar. Manipulação dos sentimentos.</td>
+            <td class="coracao"> Segurança, aceitação social, construir o consenso. Reconhecimento da equipe. Supervisão compreensiva. Hambiente harmonico. Trabalho em grupo.</td>
+            <td class="coracao"> Felicidade e igualdade. Cultura da empresa. Pensa nos outros.</td>
+            </tr>
+            <tr>
+            <th class="cerebro">O - Cérebro</th>
+            <td>{{ O * 4}}%</td>
+            <td>{{ O }}</td>
+            <td>
+                <div class="imagem-table">
+                    <img src="assets/cerebro.png" alt="cerebro" />
+                </div>
+            </td>
+            <td class="cerebro"><strong>Fazer Certo</strong> Detalhista. Organizado. Estrategista. Pontual. Conservador. Previsivel.</td>
+            <td class="cerebro"><strong>Organização</strong> Passado, presente e futuro. Consistencia. Lealdade e segurança.</td>
+            <td class="cerebro"> Dificuldade de se adaptar. Pode impedir o progresso. Detalhista, estruturado. Demasiado, sistematizado.</td>
+            <td class="cerebro"> Certeza. Quais são as regras. Conhecimento do trabalho. Ausencia de riscos e erros. Começo, meio e fim.</td>
+            <td class="cerebro"> Ordem e controle.</td>
+            </tr>
+            <tr>
+            <th class="musculo">A - Musculo</th>
+            <td>{{ A * 4}}%</td>
+            <td>{{ A }}</td>
+            <td>
+                <div class="imagem-table">
+                    <img src="assets/musculo.png" alt="cerebro" />
+                </div>
+            </td>
+            <td class="musculo"><strong>Fazer Rápido</strong> Senso de urgencia. Ação, iniciativa. Impulso e prático. Vencer desafios. Aqui e agora / Auto suficiente.</td>
+            <td class="musculo"><strong>Ação</strong> Fazer que ocorra. Parar com a burocracia. Motivação.</td>
+            <td class="musculo"> Faz do modo mais facil. Relacionamento complicado.</td>
+            <td class="musculo"> Liberdade para agir. Controle das proprias atividades. Resolver os problemas do seu jeito. Competição individual. Variedade de atividades. Não ter que repetir tarefas.</td>
+            <td class="musculo"> Resultados.</td>
+            </tr>
+        </tbody>
+        </table>
+
+    </div> -->
 
   <div class="footer">
 
@@ -1102,41 +1188,4 @@
 
   </div>
 
-</div>
- 
-<div id="pdf-content" style="padding: 20px; width: 800px; background-color: rgb(54, 202, 35);">
-  <h2 style="text-align: center;">ANÁLISE DE PERFIL COMPORTAMENTAL - NED HERRMANN</h2>
-  <p><strong>Data:</strong> {{ dataHoje() }}</p>
-  <p><strong>Nome:</strong> {{ nome }}</p>
-  <p><strong>Email:</strong> {{ email }}</p>
-
-  <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-    <tr>
-      <th style="border: 1px solid black; padding: 5px;">Arquétipo</th>
-      <th style="border: 1px solid black; padding: 5px;">Pts</th>
-      <th style="border: 1px solid black; padding: 5px;">%</th>
-    </tr>
-    <tr>
-      <td style="border: 1px solid black; padding: 5px;">I - Visão</td>
-      <td style="border: 1px solid black; padding: 5px;">{{ I }}</td>
-      <td style="border: 1px solid black; padding: 5px;">{{ calcularPercentual(I) }}%</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid black; padding: 5px;">C - Coração</td>
-      <td style="border: 1px solid black; padding: 5px;">{{ C }}</td>
-      <td style="border: 1px solid black; padding: 5px;">{{ calcularPercentual(C) }}%</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid black; padding: 5px;">O - Cérebro</td>
-      <td style="border: 1px solid black; padding: 5px;">{{ O }}</td>
-      <td style="border: 1px solid black; padding: 5px;">{{ calcularPercentual(O) }}%</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid black; padding: 5px;">A - Músculo</td>
-      <td style="border: 1px solid black; padding: 5px;">{{ A }}</td>
-      <td style="border: 1px solid black; padding: 5px;">{{ calcularPercentual(A) }}%</td>
-    </tr>
-  </table>
-
-  <p style="margin-top: 30px;">Os demais conteúdos e interpretações seguem o modelo padrão do Ned Herrmann conforme avaliado.</p>
 </div>
