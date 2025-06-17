@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from '../service.service';
+import { AuthGuard } from '../auth.guard';
+
 
 @Component({
   selector: 'app-credentials',
@@ -18,7 +20,8 @@ export class CredentialsComponent implements OnInit{
 
   constructor(
     private router: Router,
-    private service: ServiceService
+    private service: ServiceService,
+    private authService: AuthGuard
   ) {}
 
   ngOnInit(): void {
@@ -27,14 +30,17 @@ export class CredentialsComponent implements OnInit{
 
       this.vendas = vendas.items
     })
+
+
   }
 
   login(){
+    this.authService.setUser(this.email, this.nome)
+
     this.validateEmail();
     if (this.emailError) return;
 
     this.vendas.forEach((vendas:any) => {
-      // console.log(vendas.buyer.email)
 
       if(vendas.buyer.email === this.email){
         this.emailError = ''
@@ -45,7 +51,7 @@ export class CredentialsComponent implements OnInit{
       }
     })
 
-    if(this.autenticacao === false){ this.emailError = 'Email incorreto.' }
+    if(this.autenticacao === false){ this.emailError = 'Email nao registrou pagamento.' }
 
   }
 

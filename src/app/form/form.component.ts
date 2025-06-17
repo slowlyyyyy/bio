@@ -189,12 +189,12 @@ export class FormComponent implements OnInit{
     y += 10;
 
     pdf.setFontSize(12);
-    pdf.text(`Data: ${this.dataHoje()}`, 20, y);
-    y += 5;
+    // pdf.text(`Data: ${this.dataHoje()}`, 20, y);
+    // y += 5;
     pdf.text(`Nome: ${this.nome}`, 20, y);
-    y += 5;
-    pdf.text(`Email: ${this.email}`, 20, y);
     y += 10;
+    // pdf.text(`Email: ${this.email}`, 20, y);
+    // y += 10;
 
     // Agora montamos a tabela diretamente
 
@@ -253,25 +253,25 @@ export class FormComponent implements OnInit{
         7: { cellWidth: 55 },
         8: { cellWidth: 30 }
       },
-      headStyles: { fillColor: [41, 128, 185], halign: 'center' },
+      headStyles: { 
+        fillColor: [255, 255, 255], // Fundo branco
+        textColor: [0, 0, 0],       // Letras pretas
+        halign: 'center',           // Centralizado
+        fontSize: 12,               // Fonte maior (parecido com H2)
+        fontStyle: 'bold'           // Negrito para parecer um título
+      },
 
         // Aqui está a mágica para pintar a linha de "Visão"
       didParseCell: function (data) {
         if (data.column.index === 3) {
           data.cell.text = ['']; // Remove texto antes da renderização
         }
-
-        // Linha de cabeçalho já tratada
-        if (data.row.section === 'head') {
-          data.cell.styles.fillColor = [255, 255, 255]; // Fundo branco
-          data.cell.styles.textColor = [0, 0, 0];       // Texto preto
-        }
         
         // Linha da primeira linha (linha "Visão") com fundo verde e texto branco
-        if (data.row.index === 0) {
-          data.cell.styles.fillColor = [0, 200, 0]; // Verde
-          data.cell.styles.textColor = [255, 255, 255]; // Branco
-        }
+        // if (data.row.index === 0) {
+        //   data.cell.styles.fillColor = [0, 200, 0]; // Verde
+        //   data.cell.styles.textColor = [255, 255, 255]; // Branco
+        // }
 
         // Deixa as colunas 1 e 2 com fundo branco e texto preto
         if (data.column.index === 1 || data.column.index === 2 || data.column.index === 3) {
@@ -316,16 +316,16 @@ export class FormComponent implements OnInit{
         if (data.column.index === 3) {
           // Desenha a imagem correspondente conforme o valor da célula
           if (data.cell.raw === 'visao') {
-            pdf.addImage(visaoImg, 'PNG', data.cell.x + 1, data.cell.y + 1, 12, 12);
+            pdf.addImage(visaoImg, 'PNG', data.cell.x + 1, data.cell.y + 1, 25, 20);
           }
           if (data.cell.raw === 'coracao') {
-            pdf.addImage(coracaoImg, 'PNG', data.cell.x + 1, data.cell.y + 1, 12, 12);
+            pdf.addImage(coracaoImg, 'PNG', data.cell.x + 1, data.cell.y + 1, 25, 20);
           }
           if (data.cell.raw === 'cerebro') {
-            pdf.addImage(cerebroImg, 'PNG', data.cell.x + 1, data.cell.y + 1, 12, 12);
+            pdf.addImage(cerebroImg, 'PNG', data.cell.x + 1, data.cell.y + 1, 25, 20);
           }
           if (data.cell.raw === 'musculo') {
-            pdf.addImage(musculoImg, 'PNG', data.cell.x + 1, data.cell.y + 1, 12, 12);
+            pdf.addImage(musculoImg, 'PNG', data.cell.x + 1, data.cell.y + 1, 25, 20);
           }
 
           // Remove o texto da célula da coluna 3 para não mostrar as palavras
