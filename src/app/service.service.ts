@@ -15,6 +15,10 @@ export class ServiceService {
     return this.http.get(`${this.apiUrl}/sales/history`)
   }
 
+  getEmails(){
+    return this.http.get(`${this.apiUrl}/email`)
+  }
+
   postForm(respostas:any){
     return this.http.post(`${this.apiUrl}/questionario`, respostas)
   }

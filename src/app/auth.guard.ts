@@ -8,38 +8,65 @@ import { ServiceService } from './service.service';
 export class AuthGuard implements CanActivate {
 
   vendas:any[] = []
+  emails:any[] = []
   isLoggedIn = false;
   private email: string | null = null;
   private nome: string | null = null;
+  private telefone: string | null = null;
+  private empresa: string | null = null;
 
   constructor(
     private router: Router,
     private service: ServiceService
   ) {}
 
-  setUser(email: string, nome: string) {
+  setUser(email: string, nome: string, telefone: string, empresa: string) {
     this.email = email;
     this.nome = nome;
+    this.telefone = telefone;
+    this.empresa = empresa;
   }
 
   canActivate(): boolean {
 
     this.service.getVendas().subscribe((vendas:any) => {
-      console.log(vendas.items)
-
       this.vendas = vendas.items
       
       this.vendas.forEach((vendas:any) => {
-      // console.log(vendas.buyer.email)
 
-      if(vendas.buyer.email === this.email){
+        if(vendas.buyer.email === this.email){
 
-        this.router.navigate(['/form'], {
-          queryParams: { email: this.email, nome: this.nome } 
-        })
-        this.isLoggedIn = true
-      }
+          this.router.navigate(['/form'], {
+            queryParams: { 
+              email: this.email, 
+              nome: this.nome,
+              telefone: this.telefone,
+              empresa: this.empresa,
+            } 
+          })
+          this.isLoggedIn = true
+        }
+      })
     })
+
+    this.service.getEmails().subscribe((emails:any) => {
+      this.emails = emails
+
+      this.emails.forEach((element:any) => {
+
+        if(element.email === this.email){
+
+          this.router.navigate(['/form'], {
+            queryParams: { 
+              email: this.email, 
+              nome: this.nome,
+              telefone: this.telefone,
+              empresa: this.empresa,
+            } 
+          })
+          this.isLoggedIn = true
+        }
+      })
     })
 
     

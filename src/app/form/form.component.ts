@@ -12,8 +12,6 @@ declare module 'jspdf' {
   }
 }
 
-import html2canvas from 'html2canvas';
-
 
 @Component({
   selector: 'app-form',
@@ -24,6 +22,8 @@ export class FormComponent implements OnInit{
 
   nome:string = ''
   email:string = ''
+  telefone:string = ''
+  empresa:string = ''
   respostaSelecionada1: string = '';
   resposta: { letra: string, descricao: string } | null = null;
   respostasSelecionadas: { [key: number]: string } = {};
@@ -42,6 +42,8 @@ export class FormComponent implements OnInit{
     this.route.queryParams.subscribe(params => {
       this.email = params['email'];
       this.nome = params['nome'];
+      this.telefone = params['telefone'];
+      this.empresa = params['empresa'];
     });
   }
 
@@ -83,6 +85,8 @@ export class FormComponent implements OnInit{
     let respostas = {
       nome: this.nome, 
       email: this.email,
+      telefone: this.telefone,
+      empresa: this.empresa,
       resposta1: this.respostasSelecionadas[1],
       resposta2: this.respostasSelecionadas[2],
       resposta3: this.respostasSelecionadas[3],
@@ -108,11 +112,13 @@ export class FormComponent implements OnInit{
       resposta23: this.respostasSelecionadas[23],
       resposta24: this.respostasSelecionadas[24],
       resposta25: this.respostasSelecionadas[25],
-      // I: this.I,
-      // C: this.C,
-      // O: this.O,
-      // A: this.A,
+      visao: this.I,
+      coracao: this.C,
+      cerebro: this.O,
+      musculo: this.A,
     }
+
+    console.log(respostas)
 
     this.service.postForm(respostas).subscribe((dados:any) => {
       console.log(dados)
@@ -133,24 +139,6 @@ export class FormComponent implements OnInit{
     const total = this.I + this.C + this.O + this.A;
     return total ? Math.round((valor / total) * 100) : 0;
   }
-
-  // gerarPDF() {
-  //   const element = document.getElementById('pdf-content');
-    
-  //   if (element) {
-  //     html2canvas(element).then(canvas => {
-  //       const imgData = canvas.toDataURL('image/png');
-  //       const pdf = new jsPDF("l", "mm", "a4");
-
-  //       const imgProps = pdf.getImageProperties(imgData);
-  //       const pdfWidth = pdf.internal.pageSize.getWidth();
-  //       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-  //       pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-  //       pdf.save(`${this.nome}-perfil-comportamental.pdf`);
-  //     });
-  //   }
-  // }
 
   getBase64ImageFromURL(url:any): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -175,7 +163,7 @@ export class FormComponent implements OnInit{
   }
 
   async gerarPDF() {
-    const pdf = new jsPDF('l', 'mm', 'a4');
+    const pdf = new jsPDF('p', 'mm', 'a4'); // 'p' = portrait (retrato/em pé)
     let y = 20;
     const musculoImg = await this.getBase64ImageFromURL('assets/musculo.png');
     const coracaoImg = await this.getBase64ImageFromURL('assets/coracao.png');
@@ -183,138 +171,65 @@ export class FormComponent implements OnInit{
     const cerebroImg = await this.getBase64ImageFromURL('assets/cerebro.png');
 
 
-    pdf.setFontSize(18);
-    pdf.text('ANÁLISE DE PERFIL COMPORTAMENTAL - NED HERRMANN', 150, y, { align: 'center' });
+    // pdf.setFontSize(12);
+    // pdf.text(`${this.dataHoje()}`, 150, y,  { align: 'center' });
+    y += 7;
+    pdf.setFontSize(16);
+    pdf.text('ANÁLISE DE PERFIL COMPORTAMENTAL - NED HERRMANN', 110, y, { align: 'center' });
 
     y += 10;
 
     pdf.setFontSize(12);
-    // pdf.text(`Data: ${this.dataHoje()}`, 20, y);
-    // y += 5;
-    pdf.text(`Nome: ${this.nome}`, 20, y);
+    pdf.text(`Nome: ${this.nome}`, 15, y);
     y += 10;
     // pdf.text(`Email: ${this.email}`, 20, y);
     // y += 10;
 
-    // Agora montamos a tabela diretamente
-
     autoTable(pdf, {
-      head: [[
-        'Arquetipo', 'Pts', '%', 'Imagem', 'Comportamento', 'P. Fortes', 'P. de Melhoria', 'Motivações', 'Valores'
-      ]],
+      head: [[ 'Perfil', 'Arquetipo', 'Pts', '%', 'Imagem' ]],
       body: [
-        [
-          'I - Visão', `${this.I}`, `${this.I * 4}%`,  'visao',
-          'Fazer Diferente: Criativo, intuitivo, foco no futuro, distraido, Curioso/Informal/Flexivel',
-          'Idealização: Provoca mudanças, antecipar o futuro, criatividade',
-          'Impaciencia e rebeldia. Defender o novo pelo novo.',
-          'Liberdade de expressão, ausência de controles rígidos. Oportunidade para delegar. Liberdade para fazer exceções tarefas e detalhes.',
-          'Criatividade e liberdade, inspira ideias.'
-        ],
-        [
-          'C - Coração', `${this.C}`, `${this.C * 4}%`,  'coracao',
-          'Fazer Junto: Sensivel, relacionamento, time, tradicionalista, contribuição, busca harmonia.',
-          'Comunicação: Comunicação harmonica. Desenvolver e manter a cultura empresarial. Comunicação aberta.',
-          'Esconder conflitos. Felicidade em primeiro lugar. Manipulação dos sentimentos.',
-          'SSegurança, aceitação social, construir o consenso. Reconhecimento da equipe. Supervisão compreensiva. Hambiente harmonico. Trabalho em grupo.',
-          'Felicidade e igualdade. Cultura da empresa. Pensa nos outros.'
-        ],
-        [
-          'O - Cérebro', `${this.O}`, `${this.O * 4}%`,  'cerebro',
-          'Fazer Certo: Detalhista. Organizado. Estrategista. Pontual. Conservador. Previsivel.',
-          'Organização: Passado, presente e futuro. Consistencia. Lealdade e segurança.',
-          'Dificuldade de se adaptar. Pode impedir o progresso. Detalhista, estruturado. Demasiado, sistematizado.',
-          'Certeza. Quais são as regras. Conhecimento do trabalho. Ausencia de riscos e erros. Começo, meio e fim.',
-          'Ordem e controle.'
-        ],
-        [
-          'A - Musculo', `${this.A}`, `${this.A * 4}%`, 'musculo', 
-          'Fazer Rápido: Senso de urgencia. Ação, iniciativa. Impulso e prático. Vencer desafios. Aqui e agora / Auto suficiente.',
-          'Ação: Fazer que ocorra. Parar com a burocracia. Motivação.',
-          'Faz do modo mais facil. Relacionamento complicado.',
-          'Liberdade para agir. Controle das proprias atividades. Resolver os problemas do seu jeito. Competição individual. Variedade de atividades. Não ter que repetir tarefas.',
-          'Resultados.'
-        ]
+        [ 'Visionário', 'I - Visão', `${this.I}`, `${this.I * 4}%`,  'visao' ],
+        [ 'Relacional', 'C - Coração', `${this.C}`, `${this.C * 4}%`,  'coracao' ],
+        [ 'Analítico', 'O - Cérebro', `${this.O}`, `${this.O * 4}%`,  'cerebro' ],
+        [ 'Prático', 'A - Musculo', `${this.A}`, `${this.A * 4}%`, 'musculo' ]
       ],
       startY: y,
       theme: 'grid',
+
       styles: {
-        fontSize: 10,
-        cellWidth: 'wrap'
+        fontSize: 12,
+        cellWidth: 'wrap',
+        lineWidth: 0,
+        cellPadding: { top: 10, bottom: 10 },
+        halign: 'center',
+        valign: 'middle',
       },
+
       columnStyles: {
-        0: { cellWidth: 25 },
-        1: { cellWidth: 12 },
-        2: { cellWidth: 12 },
-        3: { cellWidth: 30 },
-        4: { cellWidth: 40 },
-        5: { cellWidth: 40 },
-        6: { cellWidth: 35 },
-        7: { cellWidth: 55 },
-        8: { cellWidth: 30 }
+        0: { cellWidth: 40 },
+        1: { cellWidth: 40 },
+        2: { cellWidth: 40 },
+        3: { cellWidth: 40 },
+        4: { cellWidth: 35 }
       },
+
       headStyles: { 
-        fillColor: [255, 255, 255], // Fundo branco
-        textColor: [0, 0, 0],       // Letras pretas
-        halign: 'center',           // Centralizado
-        fontSize: 12,               // Fonte maior (parecido com H2)
-        fontStyle: 'bold'           // Negrito para parecer um título
+        fillColor: [255, 255, 255], 
+        textColor: [0, 0, 0],
+        halign: 'center',
+        fontSize: 15,
+        fontStyle: 'bold'
       },
 
-        // Aqui está a mágica para pintar a linha de "Visão"
       didParseCell: function (data) {
-        if (data.column.index === 3) {
-          data.cell.text = ['']; // Remove texto antes da renderização
-        }
-        
-        // Linha da primeira linha (linha "Visão") com fundo verde e texto branco
-        // if (data.row.index === 0) {
-        //   data.cell.styles.fillColor = [0, 200, 0]; // Verde
-        //   data.cell.styles.textColor = [255, 255, 255]; // Branco
-        // }
-
-        // Deixa as colunas 1 e 2 com fundo branco e texto preto
-        if (data.column.index === 1 || data.column.index === 2 || data.column.index === 3) {
-          data.cell.styles.fillColor = [255, 255, 255];
-          data.cell.styles.textColor = [0, 0, 0];
-        }
-
-        // Linha da primeira linha (linha "Visão") com fundo verde e texto branco
-        if (data.row.index === 1) {
-          data.cell.styles.fillColor = [168, 28, 28]; // Verde
-          data.cell.styles.textColor = [255, 255, 255]; // Branco
-        }
-        // Deixa as colunas 1 e 2 com fundo branco e texto preto
-        if (data.column.index === 1 || data.column.index === 2 || data.column.index === 3) {
-          data.cell.styles.fillColor = [255, 255, 255];
-          data.cell.styles.textColor = [0, 0, 0];
-        }
-
-        if (data.row.index === 2) {
-          data.cell.styles.fillColor = [31, 86, 168]; // Azul
-          data.cell.styles.textColor = [255, 255, 255]; // Branco para o texto
-        }
-        // Deixa as colunas 1 e 2 com fundo branco e texto preto
-        if (data.column.index === 1 || data.column.index === 2 || data.column.index === 3) {
-          data.cell.styles.fillColor = [255, 255, 255];
-          data.cell.styles.textColor = [0, 0, 0];
-        }
-
-        if (data.row.index === 3) {
-          data.cell.styles.fillColor = [226, 201, 36]; // Amarelo
-          data.cell.styles.textColor = [255, 255, 255]; // Branco para o texto
-        }
-        // Deixa as colunas 1 e 2 com fundo branco e texto preto
-        if (data.column.index === 1 || data.column.index === 2 || data.column.index === 3) {
-          data.cell.styles.fillColor = [255, 255, 255];
-          data.cell.styles.textColor = [0, 0, 0];
+        if (data.column.index === 4 && data.section === 'body') {
+          data.cell.text = [''];
         }
       },
 
       didDrawCell: function (data) {
-        // Só atuamos na coluna 3 (onde as imagens são inseridas)
-        if (data.column.index === 3) {
-          // Desenha a imagem correspondente conforme o valor da célula
+
+        if (data.column.index === 4) {
           if (data.cell.raw === 'visao') {
             pdf.addImage(visaoImg, 'PNG', data.cell.x + 1, data.cell.y + 1, 25, 20);
           }
@@ -327,13 +242,9 @@ export class FormComponent implements OnInit{
           if (data.cell.raw === 'musculo') {
             pdf.addImage(musculoImg, 'PNG', data.cell.x + 1, data.cell.y + 1, 25, 20);
           }
-
-          // Remove o texto da célula da coluna 3 para não mostrar as palavras
           data.cell.text = [''];
         }
       }
-
-
       
     });
 
