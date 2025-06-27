@@ -71,6 +71,7 @@ export class FormComponent implements OnInit{
     this.pergunta -= 1
   }
 
+
   concluir(){
 
     this.proxima();
@@ -183,7 +184,7 @@ export class FormComponent implements OnInit{
     
     y += 7;
     pdf.setFontSize(16);
-    pdf.text('ANÁLISE DE PERFIL COMPORTAMENTAL - NED HERRMANN', 100, y, { align: 'center' });
+    pdf.text('ANÁLISE DE PERFIL COMPORTAMENTAL', 105, y, { align: 'center' });
 
     y += 12;
 
