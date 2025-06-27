@@ -29,13 +29,7 @@ export class CredentialsComponent implements OnInit{
 
   ngOnInit(): void {
     this.service.getVendas().subscribe((vendas:any) => {
-      console.log(vendas.items)
-
       this.vendas = vendas.items
-    })
-
-    this.service.getEmails().subscribe((emails:any) => {
-      console.log(emails)
     })
   }
 

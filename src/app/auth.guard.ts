@@ -71,10 +71,10 @@ export class AuthGuard implements CanActivate {
 
     
     if (!this.isLoggedIn) {
-      // redireciona para a página inicial ou de login
+
       this.router.navigate(['/']);
-      return false; // bloqueia a rota
+      return false;
     }
-    return true; // libera o acesso
+    return true;
   }
 }
