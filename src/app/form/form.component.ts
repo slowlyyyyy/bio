@@ -73,51 +73,52 @@ export class FormComponent implements OnInit{
 
 
   concluir(){
-
     this.proxima();
 
-    let respostas = {
-      nome: this.nome, 
-      email: this.email,
-      telefone: this.telefone,
-      empresa: this.empresa,
-      resposta1: this.respostasSelecionadas[1],
-      resposta2: this.respostasSelecionadas[2],
-      resposta3: this.respostasSelecionadas[3],
-      resposta4: this.respostasSelecionadas[4],
-      resposta5: this.respostasSelecionadas[5],
-      resposta6: this.respostasSelecionadas[6],
-      resposta7: this.respostasSelecionadas[7],
-      resposta8: this.respostasSelecionadas[8],
-      resposta9: this.respostasSelecionadas[9],
-      resposta10: this.respostasSelecionadas[10],
-      resposta11: this.respostasSelecionadas[11],
-      resposta12: this.respostasSelecionadas[12],
-      resposta13: this.respostasSelecionadas[13],
-      resposta14: this.respostasSelecionadas[14],
-      resposta15: this.respostasSelecionadas[15],
-      resposta16: this.respostasSelecionadas[16],
-      resposta17: this.respostasSelecionadas[17],
-      resposta18: this.respostasSelecionadas[18],
-      resposta19: this.respostasSelecionadas[19],
-      resposta20: this.respostasSelecionadas[20],
-      resposta21: this.respostasSelecionadas[21],
-      resposta22: this.respostasSelecionadas[22],
-      resposta23: this.respostasSelecionadas[23],
-      resposta24: this.respostasSelecionadas[24],
-      resposta25: this.respostasSelecionadas[25],
-      visao: this.I,
-      coracao: this.C,
-      cerebro: this.O,
-      musculo: this.A,
-    }
+    this.gerarPDF();
 
-    this.service.postForm(respostas).subscribe((dados:any) => {
+    // let respostas = {
+    //   nome: this.nome, 
+    //   email: this.email,
+    //   telefone: this.telefone,
+    //   empresa: this.empresa,
+    //   resposta1: this.respostasSelecionadas[1],
+    //   resposta2: this.respostasSelecionadas[2],
+    //   resposta3: this.respostasSelecionadas[3],
+    //   resposta4: this.respostasSelecionadas[4],
+    //   resposta5: this.respostasSelecionadas[5],
+    //   resposta6: this.respostasSelecionadas[6],
+    //   resposta7: this.respostasSelecionadas[7],
+    //   resposta8: this.respostasSelecionadas[8],
+    //   resposta9: this.respostasSelecionadas[9],
+    //   resposta10: this.respostasSelecionadas[10],
+    //   resposta11: this.respostasSelecionadas[11],
+    //   resposta12: this.respostasSelecionadas[12],
+    //   resposta13: this.respostasSelecionadas[13],
+    //   resposta14: this.respostasSelecionadas[14],
+    //   resposta15: this.respostasSelecionadas[15],
+    //   resposta16: this.respostasSelecionadas[16],
+    //   resposta17: this.respostasSelecionadas[17],
+    //   resposta18: this.respostasSelecionadas[18],
+    //   resposta19: this.respostasSelecionadas[19],
+    //   resposta20: this.respostasSelecionadas[20],
+    //   resposta21: this.respostasSelecionadas[21],
+    //   resposta22: this.respostasSelecionadas[22],
+    //   resposta23: this.respostasSelecionadas[23],
+    //   resposta24: this.respostasSelecionadas[24],
+    //   resposta25: this.respostasSelecionadas[25],
+    //   visao: this.I,
+    //   coracao: this.C,
+    //   cerebro: this.O,
+    //   musculo: this.A,
+    // }
+
+    // this.service.postForm(respostas).subscribe((dados:any) => {
           
-      setTimeout(() => {
-        this.gerarPDF();
-      }, 100); 
-    })
+    //   setTimeout(() => {
+
+    //   }, 100); 
+    // })
   }
 
   dataHoje(): string {
