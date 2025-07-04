@@ -13,7 +13,7 @@ export class CredentialsComponent implements OnInit{
 
   vendas:any[] = []
   emails:any[] = []
-  email = ''
+  email = 'ccrauth@gmail.com'
   telefone = ''
   nome = ''
   empresa = ''
