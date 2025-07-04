@@ -36,15 +36,15 @@ export class CredentialsComponent implements OnInit{
   }
 
   login(){
-    this.authService.setUser(this.email, this.nome, this.telefone)
 
     this.validateEmail();
     if (this.emailError) return;
 
-    this.service.verificarEmail(this.email).subscribe((dados:any) => {
+    const emailExiste = this.vendas.some(item => item.buyer.email === this.email);
 
-      if(dados.exists){
-        this.autenticacao = true
+    if (emailExiste) {
+        this.authService.setUser(this.email, this.nome, this.telefone)
+
         this.router.navigate(['/form'], {
           queryParams: { 
             email: this.email,
@@ -53,14 +53,8 @@ export class CredentialsComponent implements OnInit{
             empresa: this.empresa
           } 
         })
-      }
-    })
-
-    if(this.autenticacao === false){ 
-      setTimeout(() => {
+    } else {
         this.emailError = 'Email nao registrou pagamento.' 
-      }, 2000)
-
     }
   }
 
