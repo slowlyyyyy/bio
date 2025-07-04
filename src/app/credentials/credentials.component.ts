@@ -41,7 +41,7 @@ export class CredentialsComponent implements OnInit{
     this.validateEmail();
     if (this.emailError) return;
 
-    this.service.verificarEmail({ email: this.email }).subscribe((dados:any) => {
+    this.service.verificarEmail(this.email).subscribe((dados:any) => {
 
       if(dados.exists){
         this.autenticacao = true

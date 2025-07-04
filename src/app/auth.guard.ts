@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
 
-    this.service.verificarEmail({ email: this.email }).subscribe((dados:any) => {
+    this.service.verificarEmail(this.email).subscribe((dados:any) => {
 
       if(dados.exists){
         this.router.navigate(['/form'], {
