@@ -32,18 +32,19 @@ export class CredentialsComponent implements OnInit{
       this.vendas = vendas.items
       console.log(this.vendas)
     })
+    
   }
 
   login(){
-    this.authService.setUser(this.email, this.nome, this.telefone, this.empresa)
+    this.authService.setUser(this.email, this.nome, this.telefone)
 
     this.validateEmail();
     if (this.emailError) return;
 
-    this.vendas.forEach((vendas:any) => {
+    this.service.verificarEmail({ email: this.email }).subscribe((dados:any) => {
 
-      if(vendas.buyer.email === this.email){
-        this.emailError = ''
+      if(dados.exists){
+        this.autenticacao = true
         this.router.navigate(['/form'], {
           queryParams: { 
             email: this.email,
@@ -52,32 +53,15 @@ export class CredentialsComponent implements OnInit{
             empresa: this.empresa
           } 
         })
-        this.autenticacao = true
       }
     })
 
-    this.service.getEmails().subscribe((emails:any) => {
-      this.emails = emails
+    if(this.autenticacao === false){ 
+      setTimeout(() => {
+        this.emailError = 'Email nao registrou pagamento.' 
+      }, 2000)
 
-      this.emails.forEach((element:any) => {
-
-        if(element.email === this.email){
-
-          this.router.navigate(['/form'], {
-            queryParams: { 
-              email: this.email, 
-              nome: this.nome,
-              telefone: this.telefone,
-              empresa: this.empresa,
-            } 
-          })
-          this.autenticacao = true
-        }
-      })
-    })
-
-    if(this.autenticacao === false){ this.emailError = 'Email nao registrou pagamento.' }
-
+    }
   }
 
   validateEmail() {

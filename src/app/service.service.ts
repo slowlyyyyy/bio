@@ -15,6 +15,10 @@ export class ServiceService {
     return this.http.get(`${this.apiUrl}/sales/history`)
   }
 
+  verificarEmail(email:any){
+    return this.http.post(`${this.apiUrl}/sales/history`, email)
+  }
+
   getEmails(){
     return this.http.get(`${this.apiUrl}/email`)
   }

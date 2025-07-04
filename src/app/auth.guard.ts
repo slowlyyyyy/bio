@@ -20,56 +20,29 @@ export class AuthGuard implements CanActivate {
     private service: ServiceService
   ) {}
 
-  setUser(email: string, nome: string, telefone: string, empresa: string) {
+  setUser(email: string, nome: string, telefone: string) {
     this.email = email;
     this.nome = nome;
     this.telefone = telefone;
-    this.empresa = empresa;
   }
 
   canActivate(): boolean {
 
-    this.service.getVendas().subscribe((vendas:any) => {
-      this.vendas = vendas.items
-      
-      this.vendas.forEach((vendas:any) => {
+    this.service.verificarEmail({ email: this.email }).subscribe((dados:any) => {
 
-        if(vendas.buyer.email === this.email){
-
-          this.router.navigate(['/form'], {
-            queryParams: { 
-              email: this.email, 
-              nome: this.nome,
-              telefone: this.telefone,
-              empresa: this.empresa,
-            } 
-          })
-          this.isLoggedIn = true
-        }
-      })
+      if(dados.exists){
+        this.router.navigate(['/form'], {
+          queryParams: { 
+            email: this.email,
+            nome: this.nome,
+            telefone: this.telefone,
+            empresa: this.empresa
+          } 
+        })
+        this.isLoggedIn = true
+      }
     })
 
-    this.service.getEmails().subscribe((emails:any) => {
-      this.emails = emails
-
-      this.emails.forEach((element:any) => {
-
-        if(element.email === this.email){
-
-          this.router.navigate(['/form'], {
-            queryParams: { 
-              email: this.email, 
-              nome: this.nome,
-              telefone: this.telefone,
-              empresa: this.empresa,
-            } 
-          })
-          this.isLoggedIn = true
-        }
-      })
-    })
-
-    
     if (!this.isLoggedIn) {
 
       this.router.navigate(['/']);
